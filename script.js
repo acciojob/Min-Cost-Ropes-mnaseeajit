@@ -17,13 +17,7 @@ function mincost(arr) {
     return sum;
 }
 
-// Assuming prompt is not defined in your environment, use prompt in a browser environment
-// If using Node.js, consider using readline-sync or taking input differently
 
-// Example usage:
-// const arr = prompt("Enter an array, e.g., [1, 2, 3]: ");
-// const parsedArr = JSON.parse(arr);
-// console.log(mincost(parsedArr));
 
 // In a browser environment, prompt will work as expected
 const arr = prompt("Enter an array, e.g., [1, 2, 3]: ");
