@@ -1,26 +1,24 @@
 function mincost(arr) {
-    //write your code here
-    // return the min cost
-    let sumOf = [];
-    while (arr.length >= 2) {
-        arr.sort((a, b) => {
-            return a - b;
-        });
-
-        sumOf.push(arr[0] + arr[1]);
-        arr.splice(0, 2, arr[0] + arr[1]);
+    let totalCost = 0;
+    arr.sort((a, b) => b - a);
+    while (arr.length > 1) {
+        let currentCost = arr[arr.length-1] + arr[arr.length-2];
+        totalCost += currentCost;
+        arr.pop();
+        arr.pop();
+        arr.push(currentCost);
+        arr.sort((a, b) => b - a);
     }
-    let sum = 0;
-    for (let i = 0; i < sumOf.length; i++) {
-        sum += sumOf[i];
-    }
-    return sum;
-}
+    return totalCost;
+}  
+  
+// Prompt user for an array input
+const userInput = prompt("Enter an array, e.g., [1, 2, 3]: ");
 
+// Parse the user input into an array
+const parsedArr = JSON.parse(userInput);
 
-
-// In a browser environment, prompt will work as expected
-const arr = prompt("Enter an array, e.g., [1, 2, 3]: ");
-const parsedArr = JSON.parse(arr);
-alert(mincost(parsedArr));   
+// Call the mincost function and display the result using alert
+alert(mincost(parsedArr));
+ 
        
